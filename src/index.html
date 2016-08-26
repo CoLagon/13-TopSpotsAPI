@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title>San Diego TopSpots</title>
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- inject:css -->
+    <!-- endinject -->
+</head>
+
+<body ng-controller="topSpotsCtrl as topspots">
+    <h1 class="text-center">Tops Spots in SD w/Angular</h1>
+    <table id="topSpots" class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Link</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- single in plural -->
+            <tr ng-repeat="topspot in topspots.spots">
+                <td>{{topspot.name}}</td>
+                <td>{{topspot.description}}</td>
+                <td><a class="btn btn-primary" href="https://www.google.com/maps?q={{topspot.location[0]}},{{topspot.location[1]}}"> click here to open google maps</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <!-- endbower -->
+    <!-- inject:js -->
+    <script src="app/app.module.js"></script>
+    <script src="app/topspots.controller.js"></script>
+    <script src="app/topspots.factory.js"></script>
+    <!-- endinject -->
+</body>
+
+</html>
